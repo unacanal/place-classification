@@ -221,7 +221,7 @@ def single(config_path, model_path, image_path, cuda, crf):
             for j in range(len(weighted_labels[i])):
                 weighted_labels[i][j] /= total
     print(weighted_labels)
-    np.savetxt('weighted_labels_outdoor_3_w2.csv', weighted_labels, delimiter=",", fmt='%f')
+    np.savetxt('./data/csv/weighted_labels_outdoor_3_w2.csv', weighted_labels, delimiter=",", fmt='%f')
 
 @main.command()
 @click.option(
