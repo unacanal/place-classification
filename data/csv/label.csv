@@ -1,0 +1,182 @@
+﻿0, person,none,없음
+1, bicycle,city,도시
+2, car,city,도시
+3, motorcycle,city,도시
+4, airplane,city,도시
+5, bus,city,도시
+6, train,city,도시
+7, truck,city,도시
+8, boat,city,도시
+9, traffic light,city,도시
+10, fire hydrant,city,도시
+11, street sign,none,없음
+12, stop sign,city,도시
+13, parking meter,city,도시
+14, bench,city,도시
+15, bird,none,없음
+16, cat,none,없음
+17, dog,none,없음
+18, horse,nature,자연
+19, sheep,nature,자연
+20, cow,nature,자연
+21, elephant,nature,자연
+22, bear,nature,자연
+23, zebra,nature,자연
+24, giraffe,nature,자연
+25, hat,none,없음
+26, backpack,none,없음
+27, umbrella,city,도시
+28, shoe,none,없음
+29, eye glasses,none,없음
+30, handbag,none,없음
+31, tie,none,없음
+32, suitcase,none,없음
+33, frisbee,none,없음
+34, skis,city,도시
+35, snowboard,city,도시
+36, sports ball,none,없음
+37, kite,none,없음
+38, baseball bat,none,없음
+39, baseball glove,none,없음
+40, skateboard,city,도시
+41, surfboard,city,도시
+42, tennis racket,city,도시
+43, bottle,indoor,실내
+44, plate,none,없음
+45, wine glass,indoor,실내
+46, cup,none,없음
+47, fork,none,없음
+48, knife,none,없음
+49, spoon,none,없음
+50, bowl,none,없음
+51, banana,none,없음
+52, apple,none,없음
+53, sandwich,none,없음
+54, orange,none,없음
+55, broccoli,none,없음
+56, carrot,none,없음
+57, hot dog,none,없음
+58, pizza,none,없음
+59, donut,none,없음
+60, cake,none,없음
+61, chair,none,없음
+62, couch,indoor,실내
+63, potted plant,none,없음
+64, bed,indoor,실내
+65, mirror,none,없음
+66, dining table,indoor,실내
+67, window,none,없음
+68, desk,none,없음
+69, toilet,indoor,실내
+70, door,none,없음
+71, tv,indoor,실내
+72, laptop,indoor,실내
+73, mouse,indoor,실내
+74, remote,indoor,실내
+75, keyboard,indoor,실내
+76, cell phone,none,없음
+77, microwave,indoor,실내
+78, oven,indoor,실내
+79, toaster,indoor,실내
+80, sink,indoor,실내
+81, refrigerator,indoor,실내
+82, blender,none,없음
+83, book,none,없음
+84, clock,none,없음
+85, vase,indoor,실내
+86, scissors,indoor,실내
+87, teddy bear,indoor,실내
+88, hair drier,indoor,실내
+89, toothbrush,indoor,실내
+90, hair brush,none,없음
+91, banner,none,없음
+92, blanket,indoor,실내
+93, branch,none,없음
+94, bridge,city,도시
+95, building-other,city,도시
+96, bush,nature,자연
+97, cabinet,indoor,실내
+98, cage,city,도시
+99, cardboard,none,없음
+100, carpet,indoor,실내
+101, ceiling-other,indoor,실내
+102, ceiling-tile,indoor,실내
+103, cloth,none,없음
+104, clothes,none,없음
+105, clouds,nature,자연
+106, counter,indoor,실내
+107, cupboard,indoor,실내
+108, curtain,indoor,실내
+109, desk-stuff,indoor,실내
+110, dirt,nature,자연
+111, door-stuff,none,없음
+112, fence,city,도시
+113, floor-marble,indoor,실내
+114, floor-other,none,없음
+115, floor-stone,none,없음
+116, floor-tile,indoor,실내
+117, floor-wood,none,없음
+118, flower,nature,자연
+119, fog,nature,자연
+120, food-other,none,없음
+121, fruit,none,없음
+122, furniture-other,none,없음
+123, grass,nature,자연
+124, gravel,nature,자연
+125, ground-other,nature,자연
+126, hill,nature,자연
+127, house,city,도시
+128, leaves,nature,자연
+129, light,none,없음
+130, mat,indoor,실내
+131, metal,none,없음
+132, mirror-stuff,none,없음
+133, moss,nature,자연
+134, mountain,nature,자연
+135, mud,nature,자연
+136, napkin,indoor,실내
+137, net,none,없음
+138, paper,none,없음
+139, pavement,city,도시
+140, pillow,indoor,실내
+141, plant-other,nature,자연
+142, plastic,none,없음
+143, platform,city,도시
+144, playingfield,none,없음
+145, railing,city,도시
+146, railroad,city,도시
+147, river,nature,자연
+148, road,none,없음
+149, rock,nature,자연
+150, roof,city,도시
+151, rug,indoor,실내
+152, salad,none,없음
+153, sand,nature,자연
+154, sea,nature,자연
+155, shelf,indoor,실내
+156, sky-other,nature,자연
+157, skyscraper,city,도시
+158, snow,nature,자연
+159, solid-other,none,없음
+160, stairs,none,없음
+161, stone,nature,자연
+162, straw,none,없음
+163, structural-other,none,없음
+164, table,none,없음
+165, tent,nature,자연
+166, textile-other,none,없음
+167, towel,none,없음
+168, tree,nature,자연
+169, vegetable,none,없음
+170, wall-brick,none,없음
+171, wall-concrete,none,없음
+172, wall-other,none,없음
+173, wall-panel,none,없음
+174, wall-stone,none,없음
+175, wall-tile,indoor,실내
+176, wall-wood,none,없음
+177, water-other,nature,자연
+178, waterdrops,nature,자연
+179, window-blind,none,없음
+180, window-other,none,없음
+181, wood,none,없음

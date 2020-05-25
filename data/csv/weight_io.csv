@@ -1,0 +1,182 @@
+﻿0, person,none,없음,0
+1, bicycle,outdoor,도시,0.5
+2, car,outdoor,도시,0.5
+3, motorcycle,outdoor,도시,0.5
+4, airplane,outdoor,도시,0.5
+5, bus,outdoor,도시,0.5
+6, train,outdoor,도시,0.5
+7, truck,outdoor,도시,0.5
+8, boat,outdoor,도시,0.5
+9, traffic light,outdoor,도시,0.5
+10, fire hydrant,outdoor,도시,0.5
+11, street sign,none,없음,0
+12, stop sign,outdoor,도시,0.5
+13, parking meter,outdoor,도시,0.5
+14, bench,outdoor,도시,0.5
+15, bird,none,없음,0
+16, cat,none,없음,0
+17, dog,none,없음,0
+18, horse,outdoor,자연,0.9
+19, sheep,outdoor,자연,0.9
+20, cow,outdoor,자연,0.9
+21, elephant,outdoor,자연,0.9
+22, bear,outdoor,자연,0.9
+23, zebra,outdoor,자연,0.9
+24, giraffe,outdoor,자연,0.9
+25, hat,none,없음,0
+26, backpack,none,없음,0
+27, umbrella,outdoor,도시,0.5
+28, shoe,none,없음,0
+29, eye glasses,none,없음,0
+30, handbag,none,없음,0
+31, tie,none,없음,0
+32, suitcase,none,없음,0
+33, frisbee,none,없음,0
+34, skis,outdoor,도시,0.5
+35, snowboard,outdoor,도시,0.5
+36, sports ball,none,없음,0
+37, kite,none,없음,0
+38, baseball bat,none,없음,0
+39, baseball glove,none,없음,0
+40, skateboard,outdoor,도시,0.5
+41, surfboard,outdoor,도시,0.5
+42, tennis racket,outdoor,도시,0.5
+43, bottle,indoor,실내,0.5
+44, plate,none,없음,0
+45, wine glass,indoor,실내,0.5
+46, cup,none,없음,0
+47, fork,none,없음,0
+48, knife,none,없음,0
+49, spoon,none,없음,0
+50, bowl,none,없음,0
+51, banana,none,없음,0
+52, apple,none,없음,0
+53, sandwich,none,없음,0
+54, orange,none,없음,0
+55, broccoli,none,없음,0
+56, carrot,none,없음,0
+57, hot dog,none,없음,0
+58, pizza,none,없음,0
+59, donut,none,없음,0
+60, cake,none,없음,0
+61, chair,none,없음,0
+62, couch,indoor,실내,0.9
+63, potted plant,none,없음,0
+64, bed,indoor,실내,0.9
+65, mirror,none,없음,0
+66, dining table,indoor,실내,1.5
+67, window,none,없음,0
+68, desk,none,없음,0
+69, toilet,indoor,실내,0.9
+70, door,none,없음,0
+71, tv,indoor,실내,0.9
+72, laptop,indoor,실내,0.9
+73, mouse,indoor,실내,0.9
+74, remote,indoor,실내,0.9
+75, keyboard,indoor,실내,0.9
+76, cell phone,none,없음,0
+77, microwave,indoor,실내,0.9
+78, oven,indoor,실내,0.9
+79, toaster,indoor,실내,0.9
+80, sink,indoor,실내,0.9
+81, refrigerator,indoor,실내,0.9
+82, blender,none,없음,0
+83, book,none,없음,0
+84, clock,none,없음,0
+85, vase,indoor,실내,0.9
+86, scissors,indoor,실내,0.9
+87, teddy bear,indoor,실내,0.9
+88, hair drier,indoor,실내,0.9
+89, toothbrush,indoor,실내,0.9
+90, hair brush,none,없음,0
+91, banner,none,없음,0
+92, blanket,indoor,실내,0.9
+93, branch,none,없음,0
+94, bridge,outdoor,도시,0.5
+95, building-other,outdoor,도시,0.9
+96, bush,outdoor,자연,0.9
+97, cabinet,indoor,실내,0.9
+98, cage,outdoor,도시,0.5
+99, cardboard,none,없음,0
+100, carpet,indoor,실내,0.9
+101, ceiling-other,indoor,실내,0.9
+102, ceiling-tile,indoor,실내,0.9
+103, cloth,none,없음,0
+104, clothes,none,없음,0
+105, clouds,outdoor,자연,0.5
+106, counter,indoor,실내,0.9
+107, cupboard,indoor,실내,0.9
+108, curtain,indoor,실내,0.9
+109, desk-stuff,indoor,실내,0.9
+110, dirt,outdoor,자연,0.9
+111, door-stuff,none,없음,0
+112, fence,outdoor,도시,0.5
+113, floor-marble,indoor,실내,0.9
+114, floor-other,none,없음,0
+115, floor-stone,none,없음,0
+116, floor-tile,indoor,실내,0.9
+117, floor-wood,none,없음,0
+118, flower,outdoor,자연,0.5
+119, fog,outdoor,자연,0.5
+120, food-other,none,없음,0
+121, fruit,none,없음,0
+122, furniture-other,none,없음,0
+123, grass,outdoor,자연,0.5
+124, gravel,outdoor,자연,0.9
+125, ground-other,outdoor,자연,0.5
+126, hill,outdoor,자연,0.9
+127, house,outdoor,도시,0.5
+128, leaves,outdoor,자연,0.5
+129, light,none,없음,0
+130, mat,indoor,실내,0.9
+131, metal,none,없음,0
+132, mirror-stuff,none,없음,0
+133, moss,outdoor,자연,0.9
+134, mountain,outdoor,자연,0.9
+135, mud,outdoor,자연,0.9
+136, napkin,indoor,실내,0.9
+137, net,none,없음,0
+138, paper,none,없음,0
+139, pavement,outdoor,도시,1.5
+140, pillow,indoor,실내,0.9
+141, plant-other,outdoor,자연,0.9
+142, plastic,none,없음,0
+143, platform,outdoor,도시,0.9
+144, playingfield,none,없음,0
+145, railing,outdoor,도시,0.5
+146, railroad,outdoor,도시,0.5
+147, river,outdoor,자연,0.9
+148, road,none,없음,0
+149, rock,outdoor,자연,0.9
+150, roof,outdoor,도시,0.5
+151, rug,indoor,실내,0.9
+152, salad,none,없음,0
+153, sand,outdoor,자연,0.9
+154, sea,outdoor,자연,0.9
+155, shelf,indoor,실내,0.9
+156, sky-other,outdoor,자연,0.5
+157, skyscraper,outdoor,도시,0.9
+158, snow,outdoor,자연,0.5
+159, solid-other,none,없음,0
+160, stairs,none,없음,0
+161, stone,outdoor,자연,0.9
+162, straw,none,없음,0
+163, structural-other,none,없음,0
+164, table,none,없음,0
+165, tent,outdoor,자연,0.9
+166, textile-other,none,없음,0
+167, towel,none,없음,0
+168, tree,outdoor,자연,0.5
+169, vegetable,none,없음,0
+170, wall-brick,none,없음,0
+171, wall-concrete,none,없음,0
+172, wall-other,none,없음,0
+173, wall-panel,none,없음,0
+174, wall-stone,none,없음,0
+175, wall-tile,indoor,실내,0.9
+176, wall-wood,none,없음,0
+177, water-other,outdoor,자연,0.9
+178, waterdrops,outdoor,자연,0.9
+179, window-blind,none,없음,0
+180, window-other,none,없음,0
+181, wood,none,없음,0
