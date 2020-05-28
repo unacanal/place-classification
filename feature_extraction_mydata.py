@@ -10,7 +10,9 @@ import os
 import pandas as pd
 from skimage import io
 from PIL import Image
-from torch.utils.data import Dataset, DataLoader  # Gives easier dataset managment and creates mini batches
+from torch.utils.data import Dataset, Subset, DataLoader  # Gives easier dataset managment and creates mini batches
+
+from sklearn.model_selection import train_test_split
 
 from tensorboardX import SummaryWriter
 
@@ -57,7 +59,10 @@ transform = transforms.Compose([transforms.Resize((224, 224)), transforms.ToTens
 dataset = PlaceDataset(csv_file='data/csv/movie_gt3.csv', img_dir='data/test3',
                              transform=transform)
 
-train_set, test_set = torch.utils.data.random_split(dataset, [400, 100])
+# train_set, test_set = torch.utils.data.random_split(dataset, [400, 100])
+train_idx, test_idx = train_test_split(list(range(len(dataset))), test_size=100, shuffle=False)
+train_set = Subset(dataset, train_idx)
+test_set = Subset(dataset, test_idx)
 train_loader = DataLoader(dataset=train_set, batch_size=batch_size, shuffle=True)
 test_loader = DataLoader(dataset=test_set, batch_size=batch_size, shuffle=False)
 
