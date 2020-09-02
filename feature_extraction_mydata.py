@@ -1,5 +1,5 @@
 # reference : https://tutorials.pytorch.kr/beginner/transfer_learning_tutorial.html
-
+# ResNet, GoogLeNet
 import torch
 import torch.nn as nn  # All neural network modules, nn.Linear, nn.Conv2d, BatchNorm, Loss functions
 import torch.optim as optim  # For all Optimization algorithms, SGD, Adam, etc.
@@ -30,7 +30,7 @@ class PlaceDataset(Dataset):
         image = io.imread(img_path)
         image = Image.fromarray(image)
         y_label = torch.tensor(int(self.annotations.iloc[index, 1]))
-        print(img_path)
+        # print(img_path)
 
         if self.transform:
             image = self.transform(image)
@@ -54,11 +54,20 @@ def set_parameter_requires_grad(model, feature_extracting):
         for param in model.parameters():
             param.requires_grad = False
 
-# Load Data
+# Load Data and Augment
+rgb_mean = (0.4914, 0.4822, 0.4465)
+rgb_std = (0.2023, 0.1994, 0.2010)
+'''
+transform_train = transforms.Compose([
+    transforms.RandomHorizontalFlip(),
+    transforms.Resize([224, 224]),
+    transforms.ToTensor(),
+    transforms.Normalize(rgb_mean, rgb_std),
+])'''
 transform = transforms.Compose([transforms.Resize((224, 224)), transforms.ToTensor()])
 dataset = PlaceDataset(csv_file='data/csv/movie_gt3.csv', img_dir='data/test3',
                              transform=transform)
-
+print(len(dataset))
 # train_set, test_set = torch.utils.data.random_split(dataset, [400, 100])
 train_idx, test_idx = train_test_split(list(range(len(dataset))), test_size=100, shuffle=False)
 train_set = Subset(dataset, train_idx)
@@ -67,7 +76,8 @@ train_loader = DataLoader(dataset=train_set, batch_size=batch_size, shuffle=True
 test_loader = DataLoader(dataset=test_set, batch_size=batch_size, shuffle=False)
 
 # Model
-model_conv = torchvision.models.resnet101(pretrained=True)
+model_conv = torchvision.models.resnext101_32x8d(pretrained=True) # resnet101
+print(model_conv)
 for param in model_conv.parameters():
     param.requires_grad = False
 
@@ -126,7 +136,7 @@ def check_accuracy(loader, model):
             _, predictions = scores.max(1)
             num_correct += (predictions == y).sum()
             num_samples += predictions.size(0)
-
+        print(num_correct/num_samples)
         print(f'Got {num_correct} / {num_samples} with accuracy {float(num_correct) / float(num_samples) * 100:.2f}')
         writer.add_scalar('accuracy', float(num_correct) / float(num_samples) * 100, num_correct / num_samples)
     model.train()

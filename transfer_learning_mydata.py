@@ -9,6 +9,7 @@ from skimage import io
 from PIL import Image
 from torch.utils.data import Dataset, DataLoader  # Gives easier dataset managment and creates mini batches
 
+from tensorboardX import SummaryWriter
 
 class PlaceDataset(Dataset):
     def __init__(self, csv_file, img_dir, transform=None):
@@ -39,26 +40,27 @@ in_channel = 3
 num_classes = 3
 learning_rate = 1e-3
 batch_size = 32
-num_epochs = 2000
+num_epochs = 300
 
 # Load Data
 transform = transforms.Compose([transforms.Resize((224, 224)), transforms.ToTensor()])
 dataset = PlaceDataset(csv_file='data/csv/movie_gt3.csv', img_dir='data/test3',
                              transform=transform)
-# Dataset is actually a lot larger ~25k images, just took out 10 pictures
-# to upload to Github. It's enough to understand the structure and scale
-# if you got more images.
-train_set, test_set = torch.utils.data.random_split(dataset, [100, 400])
+
+train_set, test_set = torch.utils.data.random_split(dataset, [400, 100])
 train_loader = DataLoader(dataset=train_set, batch_size=batch_size, shuffle=True)
 test_loader = DataLoader(dataset=test_set, batch_size=batch_size, shuffle=False)
 
 # Model
-model = torchvision.models.vgg19(pretrained=True)
+model = torchvision.models.vgg19_bn(pretrained=True)
 model.to(device)
 
 # Loss and optimizer
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+
+# tensorboard
+writer = SummaryWriter(comment=model.__class__.__name__)
 
 # Train Network
 for epoch in range(num_epochs):
@@ -83,7 +85,7 @@ for epoch in range(num_epochs):
         optimizer.step()
 
     print(f'Cost at epoch {epoch} is {sum(losses) / len(losses)}')
-
+    writer.add_scalar('train_loss', sum(losses) / len(losses), epoch)
 
 # Check accuracy on training to see how good our model is
 def check_accuracy(loader, model):
@@ -102,7 +104,7 @@ def check_accuracy(loader, model):
             num_samples += predictions.size(0)
 
         print(f'Got {num_correct} / {num_samples} with accuracy {float(num_correct) / float(num_samples) * 100:.2f}')
-
+        writer.add_scalar('accuracy', float(num_correct) / float(num_samples) * 100, num_correct / num_samples)
     model.train()
 
 
@@ -111,3 +113,5 @@ check_accuracy(train_loader, model)
 
 print("Checking accuracy on Test Set")
 check_accuracy(test_loader, model)
+
+writer.close()

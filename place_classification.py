@@ -153,7 +153,7 @@ def single(config_path, model_path, image_path, cuda, crf):
 
     #----------------- load weights ---------------
     weights = []
-    weight_f = open('weighted_labels_outdoor_5.csv', 'r')
+    weight_f = open('./data/csv/weighted_labels_outdoor_5.csv', 'r')
     weight_reader = csv.reader(weight_f)
     for row in weight_reader:
         weights.append(row)
@@ -167,9 +167,12 @@ def single(config_path, model_path, image_path, cuda, crf):
     #-----------------------------------------------
 
 
-    test_data = glob.glob("./data/test3/*.jpg")
+    #test_data = glob.glob("./data/test3/*.jpg")
+    #test_data.sort()
+    #test_data = test_data[400:]
+    test_data = glob.glob("./data/mydata/test/*.jpg")
     num_files = len(test_data)
-
+    print(num_files)
 
     yes = 0
     outdoor_labels = [94, 95, 96, 97, 99, 106, 111, 113, 119, 120,
@@ -189,7 +192,7 @@ def single(config_path, model_path, image_path, cuda, crf):
         # Inference
         weight_sum = [0, 0, 0]  # [indoor, nature, city]
         print(img)
-        img_file_name = img.split('/')[3] # file name without path
+        img_file_name = img.split('/')[4] # file name without path
         img_file_num = int(img_file_name.split('.')[0]) # file name w/o format
         image = cv2.imread(img, cv2.IMREAD_COLOR)
         if image is None:
