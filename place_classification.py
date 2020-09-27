@@ -153,7 +153,7 @@ def single(config_path, model_path, image_path, cuda, crf):
 
     #----------------- load weights ---------------
     weights = []
-    weight_f = open('./data/csv/weighted_labels_outdoor_5.csv', 'r')
+    weight_f = open('./data/csv/weighted_labels_outdoor_5_w2.csv', 'r')
     weight_reader = csv.reader(weight_f)
     for row in weight_reader:
         weights.append(row)

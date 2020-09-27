@@ -203,7 +203,7 @@ def single(config_path, model_path, image_path, cuda, crf):
             print(label)
             # print(classes[label])
             # print(list(classes.keys())[list(classes.values()).index(label)])
-            if label in outdoor_labels_3:  # if the label is in 'outdoor' labels
+            if label in outdoor_labels_5:  # if the label is in 'outdoor' labels
                 w = 2
             else:
                 w = 1
@@ -221,7 +221,7 @@ def single(config_path, model_path, image_path, cuda, crf):
             for j in range(len(weighted_labels[i])):
                 weighted_labels[i][j] /= total
     print(weighted_labels)
-    np.savetxt('./data/csv/weighted_labels_outdoor_3_w2.csv', weighted_labels, delimiter=",", fmt='%f')
+    np.savetxt('./data/csv/weighted_labels_outdoor_5_w2.csv', weighted_labels, delimiter=",", fmt='%f')
 
 @main.command()
 @click.option(
