@@ -79,7 +79,7 @@ test_loader = DataLoader(dataset=test_set, batch_size=batch_size, shuffle=False)
 
 # Model
 model_conv = torchvision.models.resnet101() # resnet101-fc.in_features #pretrained=True
-print(model_conv)
+# print(model_conv)
 # for param in model_conv.parameters():
 #     param.requires_grad = False
 
