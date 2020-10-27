@@ -143,23 +143,65 @@ print(len(train_set), len(test_set))
 # train_idx, test_idx = train_test_split(list(range(len(dataset))), test_size=100, shuffle=False)
 # train_set = Subset(dataset, train_idx)
 # test_set = Subset(dataset, test_idx)
-train_loader = DataLoader(dataset=train_set, batch_size=batch_size, shuffle=True) ##True
-test_loader = DataLoader(dataset=test_set, batch_size=batch_size, shuffle=False)
+train_loader = DataLoader(dataset=train_set, batch_size=batch_size, num_workers=16, shuffle=True, pin_memory=True) ##True
+test_loader = DataLoader(dataset=test_set, batch_size=batch_size, num_workers=16, shuffle=False, pin_memory=True)
 
 # Model
-model_conv = torchvision.models.resnet101(pretrained=True) # resnet101-fc.in_features
+
+# ### ResNext101, ResNet50, wide_resnet101_2
+# model_conv = torchvision.models.wide_resnet101_2(pretrained=True) # resnet101-fc.in_features
 # print(model_conv)
 # for param in model_conv.parameters():
-#     param.requires_grad = False
+#      param.requires_grad = False
+# num_ftrs = model_conv.fc.in_features
+# model_conv.fc = nn.Linear(num_ftrs, num_classes)
+# model_conv = model_conv.to(device)
 
-num_ftrs = model_conv.fc.in_features
-model_conv.fc = nn.Linear(num_ftrs, num_classes)
-
+# torchvision.models.shufflenet_v2_x0_5(pretrained=True)
+# torchvision.models.mobilenet_v2(pretrained=True)
+### MNasNet1_0, 0_5, 0_75(x), 1_3(x)
+model_conv = torchvision.models.mnasnet0_5(pretrained=True)
+for param in model_conv.parameters():
+     param.requires_grad = False
+num_ftrs = model_conv.classifier[1].in_features
+model_conv.classifier[1] = nn.Linear(num_ftrs, num_classes)
 model_conv = model_conv.to(device)
+
+# ### GoogLeNet
+# model_conv = torchvision.models.googlenet(pretrained=True)
+# for param in model_conv.parameters():
+#      param.requires_grad = False
+# num_ftrs = model_conv.fc.in_features
+# model_conv.fc = nn.Linear(num_ftrs, num_classes)
+# model_conv = model_conv.to(device)
+
+# ### VGG19
+# model_conv = torchvision.models.vgg19(pretrained=True)
+# for param in model_conv.parameters():
+#      param.requires_grad = False
+# num_ftrs = model_conv.classifier[6].in_features
+# model_conv.classifier[6] = nn.Linear(num_ftrs, num_classes)
+# model_conv = model_conv.to(device)
+
+# ### DenseNet
+# model_conv = torchvision.models.densenet161(pretrained=True)
+# for param in model_conv.parameters():
+#      param.requires_grad = False
+# num_ftrs = model_conv.classifier.in_features
+# model_conv.classifier = nn.Linear(num_ftrs, num_classes)
+# model_conv = model_conv.to(device)
+
+# ### Inception-v3
+# model_conv = torchvision.models.inception_v3(pretrained=True)
+# for param in model_conv.parameters():
+#      param.requires_grad = False
+# num_ftrs = model_conv.fc.in_features
+# model_conv.fc = nn.Linear(num_ftrs, num_classes)
+# model_conv = model_conv.to(device)
 
 # Loss and optimizer
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model_conv.parameters(), lr=learning_rate)
+optimizer = optim.Adam(model_conv.classifier[1].parameters(), lr=learning_rate)
 # optimizer = optim.Adam(model_conv.fc.parameters(), lr=learning_rate)
 # 7 에폭마다 0.1씩 학습율 감소
 exp_lr_scheduler = lr_scheduler.StepLR(optimizer, step_size=7, gamma=0.1)
@@ -178,6 +220,13 @@ for epoch in range(num_epochs):
         targets = targets.to(device=device)
 
         # forward
+
+        # # Inception-v3
+        # outputs, aux_outputs = model_conv(data)
+        # loss1 = criterion(outputs, targets)
+        # loss2 = criterion(aux_outputs, targets)
+        # loss = loss1 + loss2 * 0.4
+        ### others
         scores = model_conv(data)
         loss = criterion(scores, targets)
 
