@@ -21,7 +21,7 @@ from sklearn.model_selection import train_test_split
 from tensorboardX import SummaryWriter
 import matplotlib.pyplot as plt
 
-class TestDataset(Dataset):
+class PlaceDataset(Dataset):
     def __init__(self, csv_file, img_dir, transform=None):
         self.annotations = pd.read_csv(csv_file)
         self.img_dir = img_dir
@@ -31,8 +31,8 @@ class TestDataset(Dataset):
         return len(self.annotations)
 
     def __getitem__(self, index):
-        # img_path = os.path.join(self.img_dir, str(self.annotations.iloc[index, 0]) + '.jpg')
-        img_path = os.path.join(self.img_dir, str(self.annotations.iloc[index, 0]))
+        img_path = os.path.join(self.img_dir, str(self.annotations.iloc[index, 0]) + '.jpg')
+        # img_path = os.path.join(self.img_dir, str(self.annotations.iloc[index, 0]))
         image = io.imread(img_path)
         image = Image.fromarray(image).convert('RGB')
         y_label = torch.tensor(int(self.annotations.iloc[index, 1]))
@@ -41,17 +41,6 @@ class TestDataset(Dataset):
             image = self.transform(image)
 
         return (image, y_label)
-
-def save_model(model_name, epoch, model):
-    dir_name = model_name + time.strftime('-%Y%m%d-%H%M%S', time.localtime(time.time()))
-    checkpoint_path = os.path.join('checkpoints', dir_name)
-    if not os.path.exists(checkpoint_path):
-        print('creating dir {}'.format(checkpoint_path))
-        os.mkdir(checkpoint_path)
-
-    checkpoint_file_path = os.path.join(checkpoint_path, 'epoch-{}.pkl'.format(epoch))
-    print('==> Saving checkpoint ... epoch {}'.format(epoch))
-    torch.save(model, checkpoint_file_path)
 
 # Check accuracy on training to see how good our model is
 def check_accuracy(loader, model, mode, epoch):
@@ -90,38 +79,10 @@ def set_parameter_requires_grad(model, feature_extracting):
 
 # Load Data and Augment
 rgb_mean = (0.4914, 0.4822, 0.4465)
-rgb_std = (0.2023, 0.1994, 0.2010)
-'''
-transform_train = transforms.Compose([
-    transforms.RandomHorizontalFlip(),
-    transforms.Resize([224, 224]),
-    transforms.ToTensor(),
-    transforms.Normalize(rgb_mean, rgb_std),
-])'''
 transform = transforms.Compose([transforms.Resize((224, 224)), transforms.RandomHorizontalFlip(), transforms.ToTensor()])
-test_set = TestDataset(csv_file='data/csv/gt_test2017_100.csv.csv', img_dir='./dataset/images/test2017_100',
-                             transform=transform)
-
-### show train images
-# fig = plt.figure()
-# for i in range(len(train_set)):
-#     sample = train_set[i]
-#     print(i, sample[0].shape)
-#     ax = plt.subplot(2, 5, i + 1)
-#     plt.tight_layout()
-#     ax.set_title('Sample #{}'.format(i))
-#     ax.axis('off')
-#     plt.imshow(  sample[0].permute(1, 2, 0)  )
-#     plt.pause(0.001)
-#     if i == 9:
-#         plt.show()
-#         break
+test_set = PlaceDataset(csv_file='data/csv/movie_gt3.csv', img_dir='data/test3', transform=transform)
 
 print(len(test_set))
-# train_set, test_set = torch.utils.data.random_split(dataset, [400, 100])
-# train_idx, test_idx = train_test_split(list(range(len(dataset))), test_size=100, shuffle=False)
-# train_set = Subset(dataset, train_idx)
-# test_set = Subset(dataset, test_idx)
 test_loader = DataLoader(dataset=test_set, batch_size=batch_size, num_workers=16, shuffle=False, pin_memory=True)
 
 # Model
